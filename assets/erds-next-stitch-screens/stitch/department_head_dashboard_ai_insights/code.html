@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduAtelier AI | Department Head Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#ffba38",
+                        "on-primary-container": "#a3e3d1",
+                        "on-tertiary-container": "#ffce7f",
+                        "on-surface": "#181c1d",
+                        "on-primary-fixed-variant": "#065043",
+                        "surface-bright": "#f6fafa",
+                        "tertiary-fixed": "#ffdeac",
+                        "surface-container-low": "#f0f4f4",
+                        "error-container": "#ffdad6",
+                        "on-background": "#181c1d",
+                        "surface-container-high": "#e5e9e9",
+                        "primary-container": "#276759",
+                        "on-primary-fixed": "#00201a",
+                        "inverse-surface": "#2c3132",
+                        "tertiary-container": "#7c5500",
+                        "surface": "#f6fafa",
+                        "surface-dim": "#d7dbdb",
+                        "secondary-container": "#cbe7f5",
+                        "on-tertiary-fixed": "#281900",
+                        "surface-variant": "#dfe3e3",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#cbe7f5",
+                        "surface-tint": "#29695b",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "primary-fixed": "#afefdd",
+                        "outline-variant": "#bec9c5",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#edf1f1",
+                        "tertiary": "#5d3f00",
+                        "background": "#f6fafa",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#034f42",
+                        "primary-fixed-dim": "#94d3c1",
+                        "on-secondary-fixed": "#021f29",
+                        "inverse-primary": "#94d3c1",
+                        "surface-container-highest": "#dfe3e3",
+                        "secondary-fixed-dim": "#afcbd8",
+                        "on-secondary-fixed-variant": "#304a55",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ebefef",
+                        "on-surface-variant": "#3e4946",
+                        "secondary": "#48626e",
+                        "outline": "#6e7976",
+                        "on-secondary-container": "#4e6874"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); }
+        .ai-glow { box-shadow: 0 0 20px rgba(255, 222, 172, 0.3); border-left: 4px solid #ffdeac; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-72 flex flex-col fixed left-0 top-0 z-50 bg-[#f0f4f4] dark:bg-slate-900 transition-all duration-300">
+<div class="flex flex-col gap-2 p-6 h-full">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-teal-900 dark:text-teal-100 font-bold font-headline text-lg">Min. Education</h1>
+<p class="text-xs font-label uppercase tracking-wider text-on-surface-variant">Strategic Ops</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<!-- Overview is Active based on Dashboard intent -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-teal-800/20 text-teal-900 dark:text-teal-200 rounded-lg font-semibold shadow-sm hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-sm">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-teal-800/70 dark:text-teal-400/70 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-lg hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label text-sm">Distribution Plans</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-teal-800/70 dark:text-teal-400/70 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-lg hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label text-sm">School Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-teal-800/70 dark:text-teal-400/70 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-lg hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-sm">Stock Forecasts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-teal-800/70 dark:text-teal-400/70 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-lg hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label text-sm">Policy Reports</span>
+</a>
+</nav>
+<button class="mt-4 mb-8 bg-primary text-on-primary py-3 px-4 rounded-full font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span>Generate Insights</span>
+</button>
+<div class="pt-6 border-t border-outline-variant/20 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-teal-800/70 dark:text-teal-400/70 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label text-sm">System Status</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-teal-800/70 dark:text-teal-400/70 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label text-sm">Help Center</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="ml-72 min-h-screen flex flex-col">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="w-full sticky top-0 z-40 bg-[#f6fafa] dark:bg-slate-950 border-b border-teal-900/5 shadow-sm flex justify-between items-center px-8 py-3">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-teal-900 dark:text-teal-200 font-headline">EduAtelier AI</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-teal-900/60 dark:text-teal-400/60 hover:text-teal-900 transition-colors font-label text-xs uppercase tracking-wider" href="#">Global Alerts</a>
+<a class="text-teal-900/60 dark:text-teal-400/60 hover:text-teal-900 transition-colors font-label text-xs uppercase tracking-wider" href="#">Ministry Portal</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 w-64" placeholder="Search data points..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-teal-900/60 hover:bg-teal-50 rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+</button>
+<button class="p-2 text-teal-900/60 hover:bg-teal-50 rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden ml-2 border border-primary/10">
+<img class="w-full h-full object-cover" data-alt="Department Head Portrait Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg-QRSTjzh3d_0NHuQMkUKIpUz3EatsZLXYOZqiZCKcI8O7icWc12MYYxnM25xe_x-gK_C0Rb-gcO77MEC3V9zB8iX0k4LRSMALYqTOD7DjwAqVy0i7ZM4DG7VQf23ZbT7eksPDdNXYpqCXyIrhtBYisalFhC05icBmBWSKvKbGtapGkbKcH_xm_jKW9qmms6NFN2S0dWBNVfF_Jtp0J01kJVGAn3m-Kz_JKfY5Iwyua_tx15uCTEWg40I2GKKoMaedZvRcAN6IvM"/>
+</div>
+</div>
+</div>
+</header>
+<section class="p-8 max-w-[1600px] mx-auto w-full space-y-8">
+<!-- Executive KPI Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-none flex flex-col gap-2 relative overflow-hidden group">
+<span class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Resources Distributed (Term)</span>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-extrabold text-primary">1.2M</span>
+<span class="text-xs text-green-600 font-bold flex items-center"><span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span> 12%</span>
+</div>
+<div class="mt-4 h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[85%]"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-1">85% of projected target reached</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-none flex flex-col gap-2 relative overflow-hidden group">
+<span class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Avg. Fulfillment Rate</span>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-extrabold text-primary">94.2%</span>
+<span class="text-xs text-green-600 font-bold flex items-center"><span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span> stable</span>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container border-2 border-white"></div>
+<div class="w-6 h-6 rounded-full bg-primary-fixed border-2 border-white"></div>
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed border-2 border-white"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant italic">Top 48 Regions Optimized</span>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-8 rounded-xl shadow-lg flex flex-col gap-2 relative overflow-hidden bg-gradient-to-br from-primary to-primary-container">
+<span class="text-primary-fixed font-label text-xs uppercase tracking-widest opacity-80">National Sufficiency Score</span>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-extrabold">88/100</span>
+<span class="material-symbols-outlined text-tertiary-fixed" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<p class="text-xs text-primary-fixed mt-4 leading-relaxed font-body">AI indicates high confidence in current trajectory for FY24 Q3.</p>
+</div>
+</div>
+<!-- Bento Content Area -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Predictive Distribution Insights (AI Focused) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 ai-glow relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="insights">insights</span>
+<h3 class="text-xl font-headline font-bold text-on-surface">Predictive Distribution Strategy</h3>
+</div>
+<p class="text-sm text-on-surface-variant">Recommended allocations for next academic window</p>
+</div>
+<button class="bg-surface-container px-4 py-2 rounded-full text-xs font-bold text-primary hover:bg-surface-container-high transition-all">View Details</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="space-y-6">
+<div class="p-4 bg-tertiary-fixed/10 rounded-xl border-l-4 border-tertiary">
+<h4 class="font-headline font-bold text-sm text-tertiary mb-1">High Impact: Region 10 Shift</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Population growth in Region 10 suggests a 15% shortfall in Grade 9 Science materials by Week 4. AI recommends diverting 2.4k units from central reserve.</p>
+</div>
+<div class="p-4 bg-primary-fixed/10 rounded-xl border-l-4 border-primary">
+<h4 class="font-headline font-bold text-sm text-primary mb-1">Optimization: Logistic Cluster C</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Consolidating textbook and laboratory kit delivery to the Northern Hub can reduce carbon footprint by 12% and transit time by 1.5 days.</p>
+</div>
+</div>
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-low group">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-60" data-alt="Data visualization showing upward trends and school growth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1NuqywIvHJn0EOHOj7dHdzq0Wy-NXtCETPrXbDsuowMZ5rv3KmvN4SGeU3Rh8AreahUP4cQCszezg7HpIGU_ZVyjxJrcAdxvoh_2QE0FMKQEulLvgH2wDNHzvZhbVT2czuOBsXryLn2kqFKGn0qO1RYCD1Ovy5mmZqFQL5Q9PAhhhdRqKmWX6ejLMNt6mgTFfn6G4TyIhdphfWJsF9owJzh4QeXlecLCe3brdzXyLvYJRZj4q45ncWk8xrHlIGBt2-XRn8nH0oIw"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-sm text-center">
+<span class="block text-2xl font-headline font-bold text-primary">+4.2%</span>
+<span class="text-[10px] font-label uppercase text-on-surface-variant">Accuracy Gain</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Stock Forecast -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl p-8 shadow-none flex flex-col">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="inventory">inventory</span>
+<h3 class="text-xl font-headline font-bold text-on-surface">Critical Stock Outlook</h3>
+</div>
+<div class="space-y-6 flex-1">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label">
+<span class="text-on-surface">Grade 9 Textbooks</span>
+<span class="text-error font-bold italic">Runs out in 12 days</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error w-[15%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label">
+<span class="text-on-surface">Lab Chemicals (A-Z)</span>
+<span class="text-tertiary font-bold italic">28 days remaining</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim w-[45%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label">
+<span class="text-on-surface">Standard Desks</span>
+<span class="text-primary font-bold">Health Supply (60d+)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[90%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<button class="w-full py-2.5 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold hover:bg-secondary-fixed transition-all">Procurement Protocol</button>
+</div>
+</div>
+<!-- Regional Map/Table -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container rounded-xl p-0 overflow-hidden">
+<div class="p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-headline font-bold text-on-surface">Regional Efficiency</h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-[10px] font-bold text-on-surface-variant border border-outline-variant/30">Active Map View</span>
+</div>
+</div>
+<div class="relative h-64 w-full bg-surface-container-low rounded-xl mb-6 overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-soft-light" data-alt="Abstract geographical map highlighting distribution routes" data-location="Manila" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHp4l0mrQpZ-KvzF2VFrPI7s6RiaT_A26OUcliGOpgDUYcAq4-II-jRYcMxrQNXJUgsLzoX5bU5VG0AErqrPm0S4HCBKTqiDs3pAu8SMh-caM4WzsbOb3UoDLHc7AL7CJBRmOEn5AS6ESTBnfPPwKpFfUCjOnvZo40_fz1XzYl9pwi3qP_MieOAcieVrOaUGJh2ecwxhA9RO1438KtiQifIi2spEc2HPhXqCSndXtuHC24s7krLzs_J_d5mmR18Bo9XBqPEgWZaDU"/>
+<div class="absolute top-1/4 left-1/3 w-4 h-4 bg-primary rounded-full border-2 border-white animate-pulse"></div>
+<div class="absolute top-1/2 left-2/3 w-4 h-4 bg-primary rounded-full border-2 border-white"></div>
+<div class="absolute bottom-1/4 right-1/4 w-4 h-4 bg-error rounded-full border-2 border-white animate-ping"></div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-4 px-4 py-2 bg-surface-container-high rounded-lg text-[10px] font-label uppercase tracking-widest text-on-surface-variant">
+<span>Region</span>
+<span>Status</span>
+<span>Throughput</span>
+<span>Efficiency</span>
+</div>
+<div class="grid grid-cols-4 px-4 py-3 bg-surface-container-lowest rounded-xl items-center text-sm">
+<span class="font-bold">Region 4 (Southern)</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-green-500"></span> On Schedule</span>
+<span class="text-on-surface-variant">450k Units</span>
+<span class="font-headline font-extrabold text-primary">98%</span>
+</div>
+<div class="grid grid-cols-4 px-4 py-3 bg-surface-container-lowest rounded-xl items-center text-sm">
+<span class="font-bold">Region 10 (Highland)</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Delayed Transit</span>
+<span class="text-on-surface-variant">112k Units</span>
+<span class="font-headline font-extrabold text-tertiary">74%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- School Performance & Gap Analysis + Feed -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-8">
+<!-- Gap Analysis -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm flex-1">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-headline font-bold text-on-surface">Critical Gap Analysis</h3>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="priority_high">priority_high</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold">St. Jude Secondary</h4>
+<p class="text-xs text-on-surface-variant">Science Lab shortage: 42% gap</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="error">error</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold">Highlands Tech</h4>
+<p class="text-xs text-on-surface-variant">Furniture allocation: 28% gap</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Activity Feed -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h3 class="text-lg font-headline font-bold text-on-surface mb-6">Operational Activity</h3>
+<div class="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[1px] before:bg-outline-variant/30">
+<div class="relative flex gap-4 pl-8">
+<div class="absolute left-0 top-1 w-[22px] h-[22px] rounded-full bg-primary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[10px] text-white" data-icon="task_alt">task_alt</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Distribution Plan Approved for Region 3</p>
+<p class="text-[10px] text-on-surface-variant mt-0.5">2 hours ago • Admin Operations</p>
+</div>
+</div>
+<div class="relative flex gap-4 pl-8">
+<div class="absolute left-0 top-1 w-[22px] h-[22px] rounded-full bg-secondary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[10px] text-white" data-icon="verified">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Bulk Asset Verification Complete</p>
+<p class="text-[10px] text-on-surface-variant mt-0.5">5 hours ago • Asset Mgmt Team</p>
+</div>
+</div>
+<div class="relative flex gap-4 pl-8">
+<div class="absolute left-0 top-1 w-[22px] h-[22px] rounded-full bg-tertiary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[10px] text-white" data-icon="sync">sync</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Central Reserve Rebalancing Initialized</p>
+<p class="text-[10px] text-on-surface-variant mt-0.5">Yesterday • AI Engine</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="mt-auto p-8 border-t border-outline-variant/10 text-center">
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant/60">EduAtelier Strategic Operations Suite v4.2.1-beta</p>
+</footer>
+</main>
+<!-- Contextual FAB (Only for Home/Dashboard context) -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-90 transition-all group z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+<span class="absolute right-full mr-4 px-4 py-2 bg-inverse-surface text-inverse-on-surface rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">New Strategic Plan</span>
+</button>
+</body></html>

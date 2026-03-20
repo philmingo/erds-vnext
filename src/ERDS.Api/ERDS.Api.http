@@ -1,0 +1,6 @@
+@ERDS.Api_HostAddress = http://localhost:5183
+
+GET {{ERDS.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

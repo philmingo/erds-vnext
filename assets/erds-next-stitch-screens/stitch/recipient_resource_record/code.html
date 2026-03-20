@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recipient Lookup Results | ERDS vNext</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#afefdd",
+              "primary-container": "#276759",
+              "surface-bright": "#f6fafa",
+              "surface": "#f6fafa",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#29695b",
+              "on-secondary-container": "#4e6874",
+              "on-primary-fixed-variant": "#065043",
+              "inverse-primary": "#94d3c1",
+              "secondary-fixed-dim": "#afcbd8",
+              "on-tertiary-fixed": "#281900",
+              "on-surface-variant": "#3e4946",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#604100",
+              "surface-container": "#ebefef",
+              "secondary": "#48626e",
+              "outline-variant": "#bec9c5",
+              "tertiary-container": "#7c5500",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#ffdeac",
+              "on-secondary-fixed": "#021f29",
+              "on-primary-fixed": "#00201a",
+              "tertiary": "#5d3f00",
+              "surface-container-high": "#e5e9e9",
+              "on-surface": "#181c1d",
+              "primary-fixed-dim": "#94d3c1",
+              "on-error": "#ffffff",
+              "secondary-container": "#cbe7f5",
+              "background": "#f6fafa",
+              "surface-dim": "#d7dbdb",
+              "primary": "#034f42",
+              "inverse-surface": "#2c3132",
+              "surface-container-highest": "#dfe3e3",
+              "on-tertiary-container": "#ffce7f",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#a3e3d1",
+              "outline": "#6e7976",
+              "error": "#ba1a1a",
+              "inverse-on-surface": "#edf1f1",
+              "error-container": "#ffdad6",
+              "on-background": "#181c1d",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#304a55",
+              "surface-container-low": "#f0f4f4",
+              "surface-variant": "#dfe3e3",
+              "secondary-fixed": "#cbe7f5"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f6fafa;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface antialiased">
+<!-- Top Navigation Bar (Shared Component Strategy) -->
+<header class="bg-[#f6fafa] dark:bg-slate-900 sticky top-0 z-50">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold text-[#00695C] dark:text-teal-500 font-headline tracking-tight">ERDS vNext</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-manrope text-sm font-medium tracking-tight text-slate-600 dark:text-slate-400 hover:text-[#034f42] transition-colors active:scale-95 duration-200">
+                    Exit
+                </button>
+<div class="flex items-center gap-2 text-slate-600">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-8 py-10 space-y-10">
+<!-- Hero Header -->
+<section class="space-y-2">
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-primary">Your Resource Record</h1>
+<p class="text-on-surface-variant font-body">Verification of assigned educational materials and equipment.</p>
+</section>
+<!-- Recipient Summary & AI Insight Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Recipient Summary Card (7 cols) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row items-center gap-8 border border-outline-variant/20 shadow-[0px_12px_32px_rgba(24,28,29,0.04)]">
+<div class="w-24 h-24 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Sarah J. Williams" class="w-full h-full object-cover" data-alt="Portrait photo of a young student smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPEjBxdXYkxjlmlKvh9XFE2o5_GuIuWYcYNz-APm-NYzrMpXeIlkqvznQupZal2sGvay2WqcczFdBocp9H0Xv_7sp9WjX-Qf9SArVpz1oBeXaAXdQMQTR0-u_GU2IHt8ruYBOw03JYtUgaweGtiXs2s4u999tduLNUkEAS3ZH4se8OXVuDwAzdIXkrAGLWKxbBrs-XZ8vI9CtkhN7mecEO8eiMb5stmydV6zi78TwDtHzgNXJKTi1ObQgCKwUq_0fVzZIsY7WvpYw"/>
+</div>
+<div class="flex-1 space-y-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+<div>
+<span class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant block mb-1">Full Name</span>
+<p class="text-xl font-headline font-bold text-primary">Sarah J. Williams</p>
+</div>
+<div>
+<span class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant block mb-1">EMIS ID</span>
+<p class="text-xl font-headline font-bold text-primary">992-104</p>
+</div>
+<div class="sm:col-span-2">
+<span class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant block mb-1">School / Institution</span>
+<p class="text-lg font-body font-medium text-secondary">St. Rose's High School</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center px-6 py-4 bg-surface-container rounded-lg border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-3xl mb-1" data-icon="verified">verified</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Status</span>
+<span class="text-primary font-bold">Verified</span>
+</div>
+</div>
+<!-- AI Insight Note (4 cols) -->
+<div class="md:col-span-4 bg-tertiary-fixed/30 rounded-xl p-8 border-l-[6px] border-tertiary shadow-[0px_12px_32px_rgba(24,28,29,0.04)] relative overflow-hidden group">
+<div class="relative z-10 space-y-3">
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<span class="font-headline font-bold text-sm tracking-tight">Resource Policy</span>
+</div>
+<p class="text-sm leading-relaxed text-on-tertiary-fixed-variant font-medium italic">
+                        "All resources listed are your responsibility until the end of the academic year. If an item is missing, please contact your school administrator."
+                    </p>
+</div>
+<!-- Abstract decorative shape -->
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-tertiary-container/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+</div>
+</div>
+<!-- Resources Table Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-end px-2">
+<h2 class="font-headline text-2xl font-bold text-primary">Assigned Educational Resources</h2>
+<div class="flex items-center gap-2">
+<span class="text-sm text-on-surface-variant font-medium">Showing 4 items</span>
+</div>
+</div>
+<!-- Table Container -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_12px_32px_rgba(24,28,29,0.04)]">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/10">
+<th class="px-8 py-5 text-[11px] font-bold uppercase tracking-[0.05em] text-on-surface-variant font-label">Item Name</th>
+<th class="px-8 py-5 text-[11px] font-bold uppercase tracking-[0.05em] text-on-surface-variant font-label">Category</th>
+<th class="px-8 py-5 text-[11px] font-bold uppercase tracking-[0.05em] text-on-surface-variant font-label">Serial / ISBN</th>
+<th class="px-8 py-5 text-[11px] font-bold uppercase tracking-[0.05em] text-on-surface-variant font-label">Date Received</th>
+<th class="px-8 py-5 text-[11px] font-bold uppercase tracking-[0.05em] text-on-surface-variant font-label">Status</th>
+<th class="px-8 py-5 text-[11px] font-bold uppercase tracking-[0.05em] text-on-surface-variant font-label">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors duration-150">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="laptop_mac">laptop_mac</span>
+</div>
+<span class="font-bold text-primary">Lenovo ThinkPad X1</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-semibold text-on-secondary-fixed-variant">Device</span>
+</td>
+<td class="px-8 py-5 text-sm font-mono text-secondary">SN-8294021-X</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Sept 12, 2023</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-bold text-primary">In Use</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors duration-150">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</div>
+<span class="font-bold text-primary">Modern Biology Grade 10</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-semibold text-on-secondary-fixed-variant">Textbook</span>
+</td>
+<td class="px-8 py-5 text-sm font-mono text-secondary">978-3-16-148410-0</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Sept 14, 2023</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-bold text-primary">Verified</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors duration-150">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+</div>
+<span class="font-bold text-primary">English Literature Anthology</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-semibold text-on-secondary-fixed-variant">Textbook</span>
+</td>
+<td class="px-8 py-5 text-sm font-mono text-secondary">978-1-40-289462-6</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Sept 14, 2023</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-bold text-primary">Verified</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors duration-150">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+</div>
+<span class="font-bold text-primary">Lab Equipment Kit A</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-semibold text-on-secondary-fixed-variant">Lab Gear</span>
+</td>
+<td class="px-8 py-5 text-sm font-mono text-secondary">KIT-9921-X</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Oct 02, 2023</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-bold text-secondary">Assigned</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- CTA / Footer Utility -->
+<div class="flex flex-col md:flex-row justify-between items-center bg-primary-container rounded-xl p-8 text-on-primary-container gap-6">
+<div class="space-y-1 text-center md:text-left">
+<h3 class="font-headline font-bold text-xl">Need to report a discrepancy?</h3>
+<p class="text-primary-fixed/80 text-sm">Download your full assignment report or contact administrative support.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 bg-primary-fixed text-primary font-bold rounded-full text-sm hover:brightness-105 active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    Download Report
+                </button>
+<button class="px-6 py-3 border border-primary-fixed/40 text-primary-fixed font-bold rounded-full text-sm hover:bg-white/5 active:scale-95 transition-all">
+                    Contact Admin
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component Strategy) -->
+<footer class="bg-[#f6fafa] dark:bg-slate-950 border-t border-[#bec9c5]/20 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-manrope font-semibold text-[#00695C]">ERDS vNext</span>
+<span class="font-inter text-xs text-slate-500 dark:text-slate-400">© 2024 Ministry of Education. All rights reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs text-slate-500 hover:text-[#00695C] transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-xs text-slate-500 hover:text-[#00695C] transition-colors" href="#">Terms of Service</a>
+<a class="font-inter text-xs text-slate-500 hover:text-[#00695C] transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

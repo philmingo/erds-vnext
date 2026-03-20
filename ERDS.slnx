@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ERDS.Api/ERDS.Api.csproj" />
+    <Project Path="src/ERDS.Application/ERDS.Application.csproj" />
+    <Project Path="src/ERDS.Contracts/ERDS.Contracts.csproj" />
+    <Project Path="src/ERDS.Domain/ERDS.Domain.csproj" />
+    <Project Path="src/ERDS.Infrastructure/ERDS.Infrastructure.csproj" />
+    <Project Path="src/ERDS.Shared/ERDS.Shared.csproj" />
+  </Folder>
+</Solution>

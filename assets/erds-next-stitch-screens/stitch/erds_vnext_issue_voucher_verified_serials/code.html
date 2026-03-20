@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Issue Voucher - ERDS vNext</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#edf1f1",
+                "surface-container-low": "#f0f4f4",
+                "primary-fixed": "#afefdd",
+                "surface-dim": "#d7dbdb",
+                "surface-bright": "#f6fafa",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "inverse-primary": "#94d3c1",
+                "secondary-fixed-dim": "#afcbd8",
+                "outline": "#6e7976",
+                "secondary-container": "#cbe7f5",
+                "primary-fixed-dim": "#94d3c1",
+                "on-tertiary-fixed": "#281900",
+                "tertiary": "#5d3f00",
+                "surface-container": "#ebefef",
+                "outline-variant": "#bec9c5",
+                "surface-tint": "#29695b",
+                "secondary": "#48626e",
+                "surface": "#f6fafa",
+                "surface-container-high": "#e5e9e9",
+                "on-primary-container": "#a3e3d1",
+                "tertiary-fixed": "#ffdeac",
+                "on-secondary-fixed": "#021f29",
+                "on-primary-fixed": "#00201a",
+                "on-error": "#ffffff",
+                "tertiary-container": "#7c5500",
+                "inverse-surface": "#2c3132",
+                "tertiary-fixed-dim": "#ffba38",
+                "on-secondary-container": "#4e6874",
+                "on-primary-fixed-variant": "#065043",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#cbe7f5",
+                "on-background": "#181c1d",
+                "primary": "#034f42",
+                "background": "#f6fafa",
+                "surface-variant": "#dfe3e3",
+                "on-tertiary-container": "#ffce7f",
+                "on-tertiary-fixed-variant": "#604100",
+                "on-surface": "#181c1d",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed-variant": "#304a55",
+                "primary-container": "#276759",
+                "on-surface-variant": "#3e4946",
+                "surface-container-highest": "#dfe3e3",
+                "error-container": "#ffdad6"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; }
+            .print-container { padding: 0 !important; margin: 0 !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="no-print bg-[#f6fafa] dark:bg-slate-900 flex justify-between items-center w-full px-8 py-4 max-w-none">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-[#034f42] dark:text-[#afefdd] uppercase tracking-widest font-['Manrope']">MINISTRY OF EDUCATION</span>
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#034f42] font-['Manrope'] font-bold tracking-tight" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#034f42] font-['Manrope'] font-bold tracking-tight" href="#">Inventory</a>
+<a class="text-[#034f42] dark:text-[#afefdd] border-b-2 border-[#034f42] pb-1 font-['Manrope'] font-bold tracking-tight" href="#">Vouchers</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#034f42] font-['Manrope'] font-bold tracking-tight" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#ebefef] transition-colors"><span class="material-symbols-outlined" data-icon="print">print</span></button>
+<button class="p-2 rounded-full hover:bg-[#ebefef] transition-colors"><span class="material-symbols-outlined" data-icon="download">download</span></button>
+<button class="p-2 rounded-full hover:bg-[#ebefef] transition-colors"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- SideNavBar -->
+<aside class="no-print w-64 bg-[#f6fafa] dark:bg-slate-950 flex flex-col p-4 space-y-2 shrink-0">
+<div class="px-4 py-6 mb-4">
+<h2 class="font-['Manrope'] font-bold text-[#034f42] text-lg">ERDS vNext</h2>
+<p class="text-xs text-slate-500 uppercase tracking-widest">Official Distribution</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-[#ebefef] dark:bg-slate-800 text-[#034f42] dark:text-[#afefdd] font-bold rounded-lg transition-all duration-200 ease-in-out font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Issue Vouchers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-[#f0f4f4] transition-all duration-200 ease-in-out font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Resource Catalog</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-[#f0f4f4] transition-all duration-200 ease-in-out font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span>Distribution Hub</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-[#f0f4f4] transition-all duration-200 ease-in-out font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Recipient Registry</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-[#f0f4f4] transition-all duration-200 ease-in-out font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>System Audit</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-8 md:p-12 bg-surface-container-low overflow-y-auto print-container">
+<!-- Action Bar -->
+<div class="no-print flex justify-between items-center mb-10">
+<div>
+<h1 class="font-headline text-3xl font-extrabold text-on-surface tracking-tight">Issue Voucher</h1>
+<p class="text-on-surface-variant font-body">Review and finalize distribution documentation.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold hover:opacity-90 transition-opacity" onclick="window.print()">
+<span class="material-symbols-outlined text-lg" data-icon="print">print</span>
+                        Print Voucher
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-on-primary font-semibold hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                        Export PDF
+                    </button>
+</div>
+</div>
+<!-- The Voucher Document -->
+<div class="bg-surface-container-lowest max-w-5xl mx-auto rounded-xl p-12 shadow-[0px_12px_32px_rgba(24,28,29,0.04)] print:shadow-none print:p-0">
+<!-- Document Header -->
+<div class="flex justify-between items-start border-b border-outline-variant/20 pb-10 mb-10">
+<div class="flex gap-4 items-center">
+<div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-4xl" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h2 class="font-headline text-2xl font-bold text-primary uppercase tracking-tight">Ministry of Education</h2>
+<p class="font-body text-sm font-semibold text-on-surface-variant tracking-widest">EDUCATIONAL RESOURCE DISTRIBUTION SYSTEM</p>
+</div>
+</div>
+<div class="text-right">
+<div class="bg-primary/5 px-4 py-2 rounded-lg inline-block mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-primary block">Voucher Number</span>
+<span class="font-headline text-xl font-bold text-on-surface">V-2024-08922</span>
+</div>
+<p class="text-sm text-on-surface-variant"><span class="font-semibold">Date:</span> October 24, 2024</p>
+<p class="text-sm text-on-surface-variant"><span class="font-semibold">Distributor:</span> Central Warehouse B</p>
+</div>
+</div>
+<!-- Recipient Info Grid -->
+<div class="grid grid-cols-3 gap-8 mb-12">
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Recipient School</span>
+<p class="font-body font-semibold text-on-surface">St. Rose's High School</p>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Region</span>
+<p class="font-body font-semibold text-on-surface">Region 4 (Demerara-Mahaica)</p>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Authorized Principal</span>
+<p class="font-body font-semibold text-on-surface">Mrs. Alana McAllister</p>
+</div>
+</div>
+<!-- Items Table -->
+<div class="mb-12 overflow-hidden rounded-xl border border-outline-variant/10">
+<table class="w-full text-left border-collapse table-auto">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant">
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest w-1/4">Item Name</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest w-1/6">Category</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest">Serial Numbers</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-right w-24">Qty</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors align-top">
+<td class="px-6 py-5">
+<p class="font-semibold text-on-surface">ThinkPad L14 Gen 4</p>
+<p class="text-xs text-on-surface-variant">Student Computing Initiative</p>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface">Electronics</td>
+<td class="px-6 py-5">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-1 text-[10px] font-mono text-on-surface bg-surface-container-low/40 p-3 rounded-lg border border-outline-variant/10">
+<span class="whitespace-nowrap">SN: 442-901-X01</span>
+<span class="whitespace-nowrap">SN: 442-901-X02</span>
+<span class="whitespace-nowrap">SN: 442-901-X03</span>
+<span class="whitespace-nowrap">SN: 442-901-X04</span>
+<span class="whitespace-nowrap">SN: 442-901-X05</span>
+<span class="whitespace-nowrap">SN: 442-901-X06</span>
+<span class="whitespace-nowrap">SN: 442-901-X07</span>
+<span class="whitespace-nowrap">SN: 442-901-X08</span>
+<span class="whitespace-nowrap">SN: 442-901-X09</span>
+<span class="whitespace-nowrap">SN: 442-901-X10</span>
+<span class="whitespace-nowrap">SN: 442-901-X11</span>
+<span class="whitespace-nowrap">SN: 442-901-X12</span>
+<span class="whitespace-nowrap">SN: 442-901-X13</span>
+<span class="whitespace-nowrap">SN: 442-901-X14</span>
+<span class="whitespace-nowrap">SN: 442-901-X15</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-semibold">15</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors align-top">
+<td class="px-6 py-5">
+<p class="font-semibold text-on-surface">Integrated Science - Grade 10</p>
+<p class="text-xs text-on-surface-variant">Pearson Education Ed. 4</p>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface">Textbooks</td>
+<td class="px-6 py-5">
+<p class="text-xs font-mono text-on-surface-variant leading-relaxed">
+                            BATCH ISBN: 978-01345-891-22-C (120 Units)
+                        </p>
+</td>
+<td class="px-6 py-5 text-right font-semibold">120</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors align-top">
+<td class="px-6 py-5">
+<p class="font-semibold text-on-surface">Advanced Mathematics Toolkit</p>
+<p class="text-xs text-on-surface-variant">Standard Geometry Set</p>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface">Stationery</td>
+<td class="px-6 py-5 text-xs italic text-on-surface-variant">N/A (Non-serialized consumable item)</td>
+<td class="px-6 py-5 text-right font-semibold">50</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="bg-surface-container-high/40">
+<td class="px-6 py-5 font-bold text-on-surface uppercase text-xs tracking-widest" colspan="3">Total Distributed Units</td>
+<td class="px-6 py-5 text-right text-lg font-bold text-primary">185</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<!-- Acknowledgment -->
+<div class="mb-16 p-6 bg-tertiary-fixed/10 border-l-4 border-tertiary-fixed rounded-r-lg">
+<h4 class="text-xs font-bold uppercase tracking-widest text-on-tertiary-fixed-variant mb-2">Formal Acknowledgment</h4>
+<p class="text-sm leading-relaxed text-on-surface-variant">
+                        I, the undersigned, hereby acknowledge receipt of the educational materials listed above in good condition. I certify that these resources will be distributed to the students and staff of St. Rose's High School in accordance with the Ministry of Education's ERDS compliance guidelines and for their intended educational purposes only.
+                    </p>
+</div>
+<!-- Signatures -->
+<div class="grid grid-cols-2 gap-20">
+<div class="space-y-12">
+<div class="border-b border-on-surface/40 pb-2">
+<!-- Placeholder for actual sign -->
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-bold text-sm text-on-surface">Handed Over By</p>
+<p class="text-xs text-on-surface-variant">Logistics Officer, Warehouse B</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">Date</p>
+<p class="text-xs">___/___/2024</p>
+</div>
+</div>
+</div>
+<div class="space-y-12">
+<div class="border-b border-on-surface/40 pb-2">
+<!-- Placeholder for actual sign -->
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-bold text-sm text-on-surface">Received By</p>
+<p class="text-xs text-on-surface-variant">Principal / Authorized Rep.</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">Date</p>
+<p class="text-xs">___/___/2024</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Stamp Area -->
+<div class="mt-16 flex justify-center">
+<div class="w-32 h-32 border-2 border-dashed border-outline-variant rounded-full flex flex-col items-center justify-center opacity-40">
+<span class="text-[8px] font-bold text-center px-4 uppercase leading-tight">School Official Seal / Stamp</span>
+</div>
+</div>
+<!-- Footer Metadata -->
+<div class="mt-12 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-[0.2em]">Generated by ERDS vNext Core - System Audit ID: REF-990-221-XBA</p>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="no-print bg-[#f6fafa] dark:bg-slate-950 flex justify-between items-center w-full px-8 py-6 border-t border-[#bec9c5]/20 mt-auto">
+<div class="text-xs text-slate-500 font-['Inter']">
+            © 2024 Ministry of Education - Educational Resource Distribution System (ERDS). All rights reserved.
+        </div>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-[#034f42] text-xs font-['Inter']" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-[#034f42] text-xs font-['Inter']" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-[#034f42] text-xs font-['Inter']" href="#">Help Desk</a>
+</div>
+</footer>
+</body></html>

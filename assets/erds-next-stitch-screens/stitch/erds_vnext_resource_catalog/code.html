@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resource Catalog | ERDS vNext</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#7c5500",
+              "surface-container": "#ebefef",
+              "surface-bright": "#f6fafa",
+              "on-primary": "#ffffff",
+              "background": "#f6fafa",
+              "on-primary-fixed-variant": "#065043",
+              "on-secondary-fixed-variant": "#304a55",
+              "secondary-fixed-dim": "#afcbd8",
+              "tertiary": "#5d3f00",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#afefdd",
+              "on-background": "#181c1d",
+              "inverse-primary": "#94d3c1",
+              "outline": "#6e7976",
+              "secondary-fixed": "#cbe7f5",
+              "on-tertiary-fixed-variant": "#604100",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-container-high": "#e5e9e9",
+              "tertiary-fixed": "#ffdeac",
+              "on-primary-fixed": "#00201a",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#4e6874",
+              "inverse-surface": "#2c3132",
+              "on-primary-container": "#a3e3d1",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#dfe3e3",
+              "surface-dim": "#d7dbdb",
+              "surface-tint": "#29695b",
+              "on-tertiary-container": "#ffce7f",
+              "inverse-on-surface": "#edf1f1",
+              "secondary-container": "#cbe7f5",
+              "primary-container": "#276759",
+              "outline-variant": "#bec9c5",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f0f4f4",
+              "on-secondary-fixed": "#021f29",
+              "primary-fixed-dim": "#94d3c1",
+              "on-surface-variant": "#3e4946",
+              "secondary": "#48626e",
+              "on-tertiary-fixed": "#281900",
+              "surface": "#f6fafa",
+              "surface-variant": "#dfe3e3",
+              "primary": "#034f42",
+              "on-surface": "#181c1d",
+              "on-secondary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f6fafa;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-[#f0f4f4] flex flex-col py-6 px-4 space-y-2 z-50">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+</div>
+<div>
+<h1 class="font-manrope font-bold text-[#034f42] leading-none">Resource Hub</h1>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 mt-1">Intelligent Atelier</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#ebefef] transition-all duration-200 rounded-xl group active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#ebefef] text-[#034f42] font-semibold border-r-4 border-[#034f42] transition-all duration-200 rounded-xl group active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-inter text-sm font-medium">Catalog</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#ebefef] transition-all duration-200 rounded-xl group active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-inter text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#ebefef] transition-all duration-200 rounded-xl group active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-inter text-sm font-medium">Requests</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#ebefef] transition-all duration-200 rounded-xl group active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-inter text-sm font-medium">Reports</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 space-y-1">
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary text-on-primary rounded-full font-semibold text-sm mb-4 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add Resource
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#ebefef] transition-all duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-inter text-sm font-medium">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#ebefef] transition-all duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-inter text-sm font-medium">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-[#f6fafa] flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-manrope font-extrabold text-[#034f42] tracking-tight text-xl">ERDS vNext</span>
+<div class="h-6 w-[1px] bg-outline-variant/30"></div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#034f42] font-bold border-b-2 border-[#034f42] py-1 text-sm" href="#">Directory</a>
+<a class="text-slate-500 font-medium hover:bg-[#ebefef] px-2 py-1 rounded transition-colors duration-200 text-sm" href="#">Allocations</a>
+<a class="text-slate-500 font-medium hover:bg-[#ebefef] px-2 py-1 rounded transition-colors duration-200 text-sm" href="#">Forecasting</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-lg" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Quick search..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-[#ebefef] rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-[#ebefef] rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-[#ebefef] rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="ml-2 w-10 h-10 rounded-full bg-slate-200 overflow-hidden ring-2 ring-primary/10">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a male administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASHWOhaMbspE2Q2w6Ebnjt64I4AtbUbMsOWkFgeNi_v6rXUee3UUa0uxgb3ZAHBcwoZtZoi7HOlWbxodCUDrKOneH3Ec5HU4PAyun-PtRrVNTp-MwMX1KwdMSOB9gbRmNkO4Bh4sSXb-D3qgyx7ndp0arJnSJdr97wSOLXxoR00d37-0xgr9Ir9QdVHPGWUO0Z0iTIcAQMF_UasrZmsp41_16ZJ6BsbAHMN0tDLMoJtF0xmvm6Iq2ucqcSfVYmZ0QEisKTzy8fnPA"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="px-8 py-8 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div class="space-y-2">
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Resource Catalog</h2>
+<p class="text-on-surface-variant font-body max-w-2xl">Manage and browse the complete directory of educational resources.</p>
+</div>
+<button class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full font-bold shadow-lg shadow-primary/10 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    Add New Resource
+                </button>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left: Catalog and Filters -->
+<div class="col-span-12 lg:col-span-9 space-y-8">
+<!-- Search and Filters Section -->
+<div class="bg-surface-container-low p-6 rounded-2xl space-y-6">
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary text-2xl" data-icon="search">search</span>
+<input class="w-full pl-12 pr-6 py-4 bg-surface-container-lowest border-none rounded-2xl shadow-sm text-lg focus:ring-2 focus:ring-primary placeholder:text-slate-400" placeholder="Search by name, model, or serial number..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<div class="space-y-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-1">Category</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-primary-fixed text-on-primary-fixed font-semibold text-xs transition-colors">All</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">Textbooks</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">Electronics</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">Furniture</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">Lab Gear</button>
+</div>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<div class="space-y-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-1">Status</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">Active</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">Archived</button>
+</div>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<div class="space-y-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-1">Supply Level</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">High</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-medium text-xs transition-colors">Low</button>
+<button class="px-4 py-2 rounded-full bg-error-container/30 text-error font-bold text-xs transition-colors">Critical</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Resource Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl" data-icon="laptop_mac">laptop_mac</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-primary-fixed/40 text-on-primary-fixed-variant text-[10px] font-bold uppercase tracking-wider">Electronics</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">ThinkPad L14 Gen 4</h3>
+<p class="text-sm text-on-surface-variant mt-2 mb-6 line-clamp-2">Intel Core i5, 16GB RAM, 512GB SSD. Standard issue for faculty and staff.</p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Total Units</span>
+<span class="font-bold text-on-surface">1,240</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Active Projects</span>
+<span class="font-bold text-on-surface">14 Districts</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="mt-auto flex items-center gap-3">
+<button class="flex-1 py-3 px-4 bg-surface-container text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface-container-high transition-colors active:scale-95">View Details</button>
+<button class="flex-1 py-3 px-4 outline outline-1 outline-outline-variant/30 text-primary rounded-full text-xs font-bold hover:bg-primary-fixed/20 transition-colors active:scale-95">Edit Specs</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl" data-icon="menu_book">menu_book</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed/40 text-on-tertiary-fixed-variant text-[10px] font-bold uppercase tracking-wider">Textbooks</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Modern Biology v.12</h3>
+<p class="text-sm text-on-surface-variant mt-2 mb-6 line-clamp-2">Comprehensive curriculum for secondary science education. Hardcover Edition.</p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Total Units</span>
+<span class="font-bold text-on-surface">4,800</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Active Projects</span>
+<span class="font-bold text-on-surface">42 Schools</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[15%] rounded-full"></div>
+</div>
+<p class="text-[10px] text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
+                                    CRITICAL SUPPLY LEVEL
+                                </p>
+</div>
+<div class="mt-auto flex items-center gap-3">
+<button class="flex-1 py-3 px-4 bg-surface-container text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface-container-high transition-colors active:scale-95">View Details</button>
+<button class="flex-1 py-3 px-4 outline outline-1 outline-outline-variant/30 text-primary rounded-full text-xs font-bold hover:bg-primary-fixed/20 transition-colors active:scale-95">Edit Specs</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl" data-icon="science">science</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed-variant text-[10px] font-bold uppercase tracking-wider">Lab Gear</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Microscope Z-Series</h3>
+<p class="text-sm text-on-surface-variant mt-2 mb-6 line-clamp-2">Digital compound microscope with 40x-1000x magnification and USB capture.</p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Total Units</span>
+<span class="font-bold text-on-surface">320</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Active Projects</span>
+<span class="font-bold text-on-surface">8 Laboratories</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-1/2 rounded-full"></div>
+</div>
+</div>
+<div class="mt-auto flex items-center gap-3">
+<button class="flex-1 py-3 px-4 bg-surface-container text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface-container-high transition-colors active:scale-95">View Details</button>
+<button class="flex-1 py-3 px-4 outline outline-1 outline-outline-variant/30 text-primary rounded-full text-xs font-bold hover:bg-primary-fixed/20 transition-colors active:scale-95">Edit Specs</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl" data-icon="chair">chair</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Furniture</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Ergo-Desk Junior</h3>
+<p class="text-sm text-on-surface-variant mt-2 mb-6 line-clamp-2">Height-adjustable individual student desks with modular layout capabilities.</p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Total Units</span>
+<span class="font-bold text-on-surface">12,450</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-medium">Active Projects</span>
+<span class="font-bold text-on-surface">112 Campuses</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[92%] rounded-full"></div>
+</div>
+</div>
+<div class="mt-auto flex items-center gap-3">
+<button class="flex-1 py-3 px-4 bg-surface-container text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface-container-high transition-colors active:scale-95">View Details</button>
+<button class="flex-1 py-3 px-4 outline outline-1 outline-outline-variant/30 text-primary rounded-full text-xs font-bold hover:bg-primary-fixed/20 transition-colors active:scale-95">Edit Specs</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: AI Insights Sidebar -->
+<div class="col-span-12 lg:col-span-3">
+<div class="sticky top-24 space-y-6">
+<!-- Atelier Insight Card -->
+<div class="relative bg-surface-container-lowest rounded-[2rem] overflow-hidden p-8 shadow-sm border-l-4 border-tertiary">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface text-lg mb-4">Atelier Insight</h4>
+<div class="space-y-4">
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                    Analysis of inventory lifecycle data indicates that <strong class="text-on-surface">Grade 10 Science Textbooks</strong> are nearing end-of-life status.
+                                </p>
+<div class="bg-tertiary-fixed/20 p-4 rounded-2xl">
+<div class="flex items-center gap-2 text-tertiary font-bold text-xs mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+                                        Historical Cycle
+                                    </div>
+<p class="text-[11px] text-on-tertiary-fixed-variant">Replacement typically occurs every 5.2 years. Current stock age: 4.8 years.</p>
+</div>
+<p class="text-sm text-on-surface-variant">We suggest initiating a curriculum review or procurement draft for the upcoming fiscal year.</p>
+<button class="w-full mt-4 py-3 bg-tertiary text-on-tertiary rounded-full text-xs font-bold shadow-md hover:shadow-lg transition-all active:scale-95">
+                                    Generate Budget Draft
+                                </button>
+</div>
+</div>
+<!-- Statistics Summary -->
+<div class="bg-surface-container-low rounded-[2rem] p-8 space-y-6">
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Global Catalog Health</h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-slate-500">Utilization Rate</span>
+<span class="text-xl font-bold text-primary">88%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[88%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-slate-500">Inventory Value</span>
+<span class="text-xl font-bold text-on-surface">$4.2M</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[65%] rounded-full"></div>
+</div>
+</div>
+<div class="pt-4">
+<div class="bg-surface-container-lowest/50 p-4 rounded-2xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="error">error</span>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant">NEEDS ATTENTION</p>
+<p class="text-xs text-on-surface">12 Low-stock alerts</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
