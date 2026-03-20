@@ -1,5 +1,6 @@
 using ERDS.Application.Common.Interfaces;
 using ERDS.Infrastructure.Persistence;
+using ERDS.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ public static class DependencyInjection
                 npgsqlOptions.MigrationsAssembly(typeof(ErdsDbContext).Assembly.FullName)));
 
         services.AddScoped<IErdsDbContext>(provider => provider.GetRequiredService<ErdsDbContext>());
+        services.AddScoped<IPermissionService, PermissionService>();
 
         return services;
     }

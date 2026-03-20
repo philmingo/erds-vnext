@@ -8,4 +8,6 @@ public class AppUser : AuditableEntity
     public required string DisplayName { get; set; }
     public required string Email { get; set; }
     public bool IsActive { get; set; } = true;
+    public ICollection<UserRole> UserRoles { get; set; } = [];
+    public ICollection<UserRestriction> UserRestrictions { get; set; } = [];
 }

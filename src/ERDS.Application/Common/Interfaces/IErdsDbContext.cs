@@ -24,6 +24,11 @@ public interface IErdsDbContext
     DbSet<Project> Projects { get; }
     DbSet<AppUser> AppUsers { get; }
     DbSet<AuditLog> AuditLogs { get; }
+    DbSet<Role> Roles { get; }
+    DbSet<Permission> Permissions { get; }
+    DbSet<RolePermission> RolePermissions { get; }
+    DbSet<UserRole> UserRoles { get; }
+    DbSet<UserRestriction> UserRestrictions { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

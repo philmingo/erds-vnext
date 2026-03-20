@@ -1,5 +1,10 @@
+using ERDS.Api.Authorization;
+using ERDS.Api.Services;
 using ERDS.Application;
+using ERDS.Application.Common.Interfaces;
 using ERDS.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Identity.Web;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -17,6 +22,12 @@ try
         .ReadFrom.Services(services)
         .WriteTo.Console());
 
+    // Azure AD authentication
+    builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration);
+    builder.Services.AddAuthorization();
+    builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+    builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+
     // OpenAPI / Swagger
     builder.Services.AddOpenApi();
 
@@ -25,6 +36,10 @@ try
 
     // Health checks
     builder.Services.AddHealthChecks();
+
+    // HTTP context accessor (required for CurrentUserService)
+    builder.Services.AddHttpContextAccessor();
+    builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
     // Application layer (MediatR, FluentValidation)
     builder.Services.AddApplication();
@@ -55,6 +70,8 @@ try
     }
 
     app.UseHttpsRedirection();
+    app.UseAuthentication();
+    app.UseAuthorization();
 
     app.MapControllers();
     app.MapHealthChecks("/health");

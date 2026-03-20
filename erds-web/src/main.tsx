@@ -9,6 +9,7 @@ import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
 import { theme } from '@/theme';
 import { router } from '@/routes';
+import { AuthProvider } from '@/auth/AuthProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,7 +25,9 @@ createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <RouterProvider router={router} />
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
   </StrictMode>,

@@ -1,7 +1,13 @@
 import { AppBar, Toolbar, Typography, Box, IconButton } from '@mui/material';
-import { Notifications as NotificationsIcon } from '@mui/icons-material';
+import {
+  Notifications as NotificationsIcon,
+  Logout as LogoutIcon,
+} from '@mui/icons-material';
+import { useAuth } from '@/auth/useAuth';
 
 export function AppTopBar() {
+  const { user, logout } = useAuth();
+
   return (
     <AppBar
       position="sticky"
@@ -15,8 +21,11 @@ export function AppTopBar() {
           <NotificationsIcon />
         </IconButton>
         <Typography variant="body2" sx={{ ml: 2 }}>
-          User
+          {user?.name ?? 'User'}
         </Typography>
+        <IconButton size="small" sx={{ ml: 1 }} onClick={logout} title="Sign out">
+          <LogoutIcon fontSize="small" />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
